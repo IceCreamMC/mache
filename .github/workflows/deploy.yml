@@ -101,7 +101,7 @@ jobs:
       - uses: gradle/actions/setup-gradle@v3
         name: Setup Gradle
       - name: Deploy Mache Artifact
-        run: ./gradlew publish -PICECREAMUsername=${{ secrets.MAVEN_USER }} -PICECREAMPassword=${{ secrets.MAVEN_SECRET }}
+        run: ./gradlew publish -PPaperMCUsername=${{ secrets.MAVEN_USER }} -PPaperMCPassword=${{ secrets.MAVEN_SECRET }}
   cleanup:
     name: Cleanup
     runs-on: ubuntu-latest
