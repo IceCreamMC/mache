@@ -1,6 +1,7 @@
 import io.papermc.sculptor.shared.util.MinecraftJarType
 
 plugins {
+    id("maven-publish")
     id("io.papermc.sculptor.version") version "1.0.8"
 }
 
@@ -32,6 +33,27 @@ mache {
     }
 
     remapperArgs.set(args)
+}
+
+publishing {
+  repositories {
+    maven {
+      name = "ICECREAM"
+      url = uri("https://repo.icecreammc.xyz/releases")
+      credentials(PasswordCredentials::class)
+      authentication {
+        create<BasicAuthentication>("basic")
+      }
+    }
+  }
+  publications {
+    create<MavenPublication>("maven") {
+      groupId = "io.papermc"
+      artifactId = "mache"
+      version = "1.21.1-build.1"
+      from(components["java"])
+    }
+  }
 }
 
 dependencies {

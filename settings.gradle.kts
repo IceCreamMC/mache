@@ -1,6 +1,7 @@
 pluginManagement {
     repositories {
         maven("https://repo.papermc.io/repository/maven-releases/")
+        maven("https://repo.icecreammc.xyz/releases/")
         mavenCentral()
         maven("https://maven.neoforged.net/releases") {
             name = "Neoforged"

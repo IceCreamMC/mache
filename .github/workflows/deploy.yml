@@ -101,11 +101,7 @@ jobs:
       - uses: gradle/actions/setup-gradle@v3
         name: Setup Gradle
       - name: Deploy Mache Artifact
-        run: ./gradlew ':versions:${{ needs.verify.outputs.project_name }}:publishMachePublicationToPaperMCRepository'
-        env:
-          BUILD_ID: ${{ env.GITHUB_RUN_NUMBER }}
-          ORG_GRADLE_PROJECT_PaperMCUsername: ${{ secrets.NEXUS_USERNAME }}
-          ORG_GRADLE_PROJECT_PaperMCPassword: ${{ secrets.NEXUS_PASSWORD }}
+        run: ./gradlew publish -PICECREAMUsername=${{ secrets.MAVEN_USER }} -PICECREAMPassword=${{ secrets.MAVEN_SECRET }}
   cleanup:
     name: Cleanup
     runs-on: ubuntu-latest
