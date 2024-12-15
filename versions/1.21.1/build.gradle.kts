@@ -38,7 +38,7 @@ mache {
 publishing {
   repositories {
     maven {
-      name = "ICECREAM"
+      name = "PaperMC"
       url = uri("https://repo.icecreammc.xyz/releases")
       credentials(PasswordCredentials::class)
       authentication {
